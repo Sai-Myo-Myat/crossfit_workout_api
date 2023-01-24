@@ -7,8 +7,12 @@ const getAllWorkouts = () => {
 };
 
 const getOneWorkout = (workoutId) => {
-    const workout = workout.getOneWorkout(workoutId);
-    return workout;
+    try{
+        const workout = workout.getOneWorkout(workoutId);
+        return workout;
+    }catch(error){
+        throw(error);
+    }
 };
 
 const createNewWorkout = (newWorkout) => {
@@ -18,17 +22,30 @@ const createNewWorkout = (newWorkout) => {
         createdAt: new Date().toLocaleString(),
         updatedAt: new Date().toLocaleString()
     }
-    const createdWorkout = workout.createNewWorkout(workoutToInsert);
-    return createdWorkout;
+    try{
+        const createdWorkout = workout.createNewWorkout(workoutToInsert);
+        return createdWorkout;
+    }catch(error) {
+        throw error;
+    }
 };
 
 const updateOneWorkout = (workoutId,body) => {
-    const updatedWorkout = workout.updateOneWorkout(workoutId,body);
-    return updateOneWorkout;
+    try{
+        const updatedWorkout = workout.updateOneWorkout(workoutId,body);
+        return updateOneWorkout;
+    }catch(error){
+        throw error;
+    }
 };
 
-const deleteOneWorkout = () => {
-    return;
+const deleteOneWorkout = (workoutId) => {
+    try{
+        workout.deleteOneWorkout(workoutId);
+        return;
+    }catch(error){
+        throw error;
+    }
 };
   
 module.exports = {
