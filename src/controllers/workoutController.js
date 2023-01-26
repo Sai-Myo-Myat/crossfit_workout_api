@@ -6,7 +6,7 @@ const getAllWorkouts = (req, res) => {
         res.send({status: "Ok", data: allWorkouts});
     }catch(error){
         res.status(error?.status || 500)
-            .send({status: "FAILED", message: {error: error?.message || error}});
+            .send({status: "FAILED", data: {error: error?.message || error}});
     }
 };
 
